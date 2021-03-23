@@ -89,12 +89,21 @@ def convert_project(prj, format):
 def my_basic_plugin(p):
     print(p)
 
-def complete_yaml(p):
+def yaml_samples(p):
     import re
     for s in p.samples:
         sys.stdout.write("- ")
         out = re.sub('\n', '\n  ', yaml.safe_dump(s.to_dict(), default_flow_style=False))
         sys.stdout.write(out + "\n")
+
+
+def complete_yaml(p):
+    print(p.to_yaml())
+
+
+def csv(p):
+    sys.stdout.write(p._sample_df.to_csv())    
+    sys.stdout.write(p._subsample_df[0].to_csv())
 
 
 def run_filter(prj, filter_name):

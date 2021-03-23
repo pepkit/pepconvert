@@ -45,8 +45,10 @@ setup(
         "console_scripts": [
             'pepconvert = pepconvert.__main__:main'
         ],
-        'pep.filters': ['basic=pepconvert:my_basic_plugin',
-                        'yaml=pepconvert:complete_yaml']
+        "pep.filters": ["basic=pepconvert:my_basic_plugin",
+                        "yaml=pepconvert:complete_yaml",
+                        "csv=pepconvert:csv",
+                        "yaml-samples=pepconvert:yaml_samples"]
     },
     include_package_data=True,
     test_suite="tests",
