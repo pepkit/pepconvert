@@ -2,6 +2,8 @@ import sys
 import jsonschema
 import logging
 import os
+import yaml
+
 from warnings import catch_warnings as cw
 
 from logmuse import init_logger
@@ -80,20 +82,29 @@ def plugins():
     
 
 def convert_project(prj, format):
-    run_filters(prj)
+    run_filter(prj, format)
     sys.exit(0)
 
 
 def my_basic_plugin(p):
     print(p)
 
+def complete_yaml(p):
+    import re
+    for s in p.samples:
+        sys.stdout.write("- ")
+        out = re.sub('\n', '\n  ', yaml.safe_dump(s.to_dict(), default_flow_style=False))
+        sys.stdout.write(out + "\n")
 
-def run_filters(prj):
+
+def run_filter(prj, filter_name):
     myplugins = plugins()
 
     for name, func in myplugins.items():
-        _LOGGER.info(f"running plugin {name}")
-        func(prj)
+        if name ==filter_name:
+            _LOGGER.info(f"running plugin {name}")
+            func(prj)
+
 
 def list_formats():
     myplugins = plugins()

@@ -1,0 +1,46 @@
+- fastq_1:
+  - https://raw.githubusercontent.com/nf-core/test-datasets/rnaseq/testdata/GSE110004/SRR6357070_1.fastq.gz
+  - https://raw.githubusercontent.com/nf-core/test-datasets/rnaseq/testdata/GSE110004/SRR6357071_1.fastq.gz
+  fastq_2:
+  - https://raw.githubusercontent.com/nf-core/test-datasets/rnaseq/testdata/GSE110004/SRR6357070_2.fastq.gz
+  - https://raw.githubusercontent.com/nf-core/test-datasets/rnaseq/testdata/GSE110004/SRR6357071_2.fastq.gz
+  sample_name: WT_REP1
+  strandedness: reverse
+  subsample_name:
+  - '0'
+  - '1'
+  
+- fastq_1:
+  - https://raw.githubusercontent.com/nf-core/test-datasets/rnaseq/testdata/GSE110004/SRR6357072_1.fastq.gz
+  fastq_2:
+  - https://raw.githubusercontent.com/nf-core/test-datasets/rnaseq/testdata/GSE110004/SRR6357072_2.fastq.gz
+  sample_name: WT_REP2
+  strandedness: reverse
+  subsample_name:
+  - '2'
+  
+- fastq_1:
+  - https://raw.githubusercontent.com/nf-core/test-datasets/rnaseq/testdata/GSE110004/SRR6357073_1.fastq.gz
+  sample_name: RAP1_UNINDUCED_REP1
+  strandedness: reverse
+  subsample_name:
+  - '3'
+  
+- fastq_1:
+  - https://raw.githubusercontent.com/nf-core/test-datasets/rnaseq/testdata/GSE110004/SRR6357074_1.fastq.gz
+  - https://raw.githubusercontent.com/nf-core/test-datasets/rnaseq/testdata/GSE110004/SRR6357075_1.fastq.gz
+  sample_name: RAP1_UNINDUCED_REP2
+  strandedness: reverse
+  subsample_name:
+  - '4'
+  - '5'
+  
+- fastq_1:
+  - https://raw.githubusercontent.com/nf-core/test-datasets/rnaseq/testdata/GSE110004/SRR6357076_1.fastq.gz
+  fastq_2:
+  - https://raw.githubusercontent.com/nf-core/test-datasets/rnaseq/testdata/GSE110004/SRR6357076_2.fastq.gz
+  sample_name: RAP1_IAA_30M_REP1
+  strandedness: reverse
+  subsample_name:
+  - '6'
+  
