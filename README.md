@@ -33,3 +33,43 @@ You can use `-f yaml` to get a yaml representation of the samples in your projec
 ```
 pepconvert convert config.yaml -f yaml
 ```
+
+## Write a plugin
+
+Write a custom filter/formatter like this:
+    
+## 1. Add entry_points to setup.py
+
+The [setup.py](setup.py) file uses `entry_points` to specify a mapping of refgenie hooks to functions to call.
+
+```
+    entry_points={
+        "pep.filters": ["basic=pepconvert:my_basic_plugin",
+                        "yaml=pepconvert:complete_yaml",
+                        "csv=pepconvert:csv",
+                        "yaml-samples=pepconvert:yaml_samples"]
+        }
+```
+
+The format is: `'pep.filters': 'FILTER_NAME=PLUGIN_PACKAGE_NAME:FUNCTION_NAME'`.
+
+- "FILTER_NAME" can be any unique identifier for your plugin
+- "PLUGIN_PACKAGE_NAME" must be the name of python package the holds your plugin.
+- "FUNCTION_NAME" must match the name of the function in your package
+
+## 2. Write functions to call
+
+The module contains the functions, with names corresponding to the `FUNCTION_NAME` in the entry points above. These functions **must take a peppy.Project object as sole parameter**. Example:
+
+```
+import peppy
+  
+def my_custom_filter(p):
+    import re
+    for s in p.samples:
+        sys.stdout.write("- ")
+        out = re.sub('\n', '\n  ', yaml.safe_dump(s.to_dict(), default_flow_style=False))
+        sys.stdout.write(out + "\n")
+```
+
+That's it! Install the package and it should run your functions at the specified hook entry points.
