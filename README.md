@@ -38,7 +38,7 @@ pepconvert convert config.yaml -f yaml
 
 Write a custom filter/formatter like this:
     
-## 1. Add entry_points to setup.py
+### 1. Add entry_points to setup.py
 
 The [setup.py](setup.py) file uses `entry_points` to specify a mapping of refgenie hooks to functions to call.
 
@@ -57,7 +57,7 @@ The format is: `'pep.filters': 'FILTER_NAME=PLUGIN_PACKAGE_NAME:FUNCTION_NAME'`.
 - "PLUGIN_PACKAGE_NAME" must be the name of python package the holds your plugin.
 - "FUNCTION_NAME" must match the name of the function in your package
 
-## 2. Write functions to call
+### 2. Write functions to call
 
 The module contains the functions, with names corresponding to the `FUNCTION_NAME` in the entry points above. These functions **must take a peppy.Project object as sole parameter**. Example:
 
