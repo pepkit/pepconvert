@@ -1,3 +1,6 @@
+**NOTE: pepconvert functionality has been integrated into eido. Use `eido convert` and `eido filters` instead**
+
+
 # pepconvert
 
 Provides a CLI to convert a PEP into different output formats. These include some built-in formats, like `csv` (which takes your spits out a *processed* `csv` file, with project/sample modified), `yaml`, and a few others. It also provides a plugin system so that you can write your own Python functions to provide custom output formats, which can then be used with pepconvert.
